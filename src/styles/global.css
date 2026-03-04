@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Instrument Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  
+  --color-paper: var(--theme-paper);
+  --color-surface: var(--theme-surface);
+  --color-ink: var(--theme-ink);
+  --color-terracotta: var(--theme-terracotta);
+  --color-muted: var(--theme-muted);
+  --color-line: var(--theme-line);
+}
