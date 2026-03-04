@@ -7,15 +7,15 @@ import Layout from '../layouts/Layout.astro';
   <nav class="p-6 md:p-12 flex justify-between items-center">
     <div class="font-sans text-2xl tracking-tight">Glade.</div>
     <div class="flex items-center gap-6">
-      <button id="theme-toggle" class="text-muted hover:text-ink transition-colors cursor-pointer" aria-label="Toggle dark mode">
-        <svg id="sun-icon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <button id="theme-toggle" class="p-2 text-ink hover:text-terracotta transition-colors cursor-pointer" aria-label="Toggle dark mode">
+        <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
-        <svg id="moon-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
         </svg>
       </button>
-      <div class="font-mono text-xs uppercase tracking-widest text-muted">v1.0.4</div>
+      <div class="font-mono text-xs uppercase tracking-widest text-muted">v1.0</div>
     </div>
   </nav>
 
@@ -48,61 +48,143 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- App Mockup -->
   <section class="px-6 md:px-12 pt-64">
-    <div class="mockup-animate max-w-6xl mx-auto bg-paper border border-line p-2 md:p-4 shadow-2xl shadow-ink/5">
-      <div class="border border-line bg-surface flex flex-col md:flex-row h-[600px] transition-colors cursor-pointer duration-150">
-        <!-- Sidebar -->
-        <div class="w-full md:w-64 border-b md:border-b-0 md:border-r border-line p-6 flex flex-col gap-8 bg-paper/50 transition-colors cursor-pointer duration-150">
-          <div class="flex gap-2">
-            <div class="w-3 h-3 rounded-full border border-line"></div>
-            <div class="w-3 h-3 rounded-full border border-line"></div>
-            <div class="w-3 h-3 rounded-full border border-line"></div>
-          </div>
-          
-          <div class="space-y-6 flex-1">
-            <div>
-              <div class="font-mono text-[10px] uppercase tracking-widest text-muted mb-3">Folders</div>
-              <ul class="font-mono text-xs space-y-2 text-ink/80">
-                <li class="flex items-center gap-2"><span class="text-terracotta">▾</span> Architecture</li>
-                <li class="flex items-center gap-2 pl-4 text-muted">system-design.md</li>
-                <li class="flex items-center gap-2 pl-4">api-v2-draft.md</li>
-                <li class="flex items-center gap-2 mt-2"><span class="text-muted">▸</span> Journal</li>
-                <li class="flex items-center gap-2"><span class="text-muted">▸</span> Drafts</li>
-              </ul>
+    <div class="mockup-container max-w-6xl mx-auto relative">
+      <!-- Floating Card: Local-first (left, more towards bottom) -->
+      <div class="floating-card floating-card-left hidden md:block absolute -left-36 bottom-32 z-10">
+        <div class="bg-paper border border-line p-8 shadow-2xl w-96">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-terracotta/10 flex items-center justify-center">
+              <svg class="w-6 h-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+              </svg>
             </div>
             <div>
-              <div class="font-mono text-[10px] uppercase tracking-widest text-muted mb-3">Tags</div>
-              <div class="flex flex-wrap gap-2">
-                <span class="font-mono text-[10px] px-2 py-1 border border-line text-muted">#rust</span>
-                <span class="font-mono text-[10px] px-2 py-1 border border-line text-muted">#ideas</span>
-                <span class="font-mono text-[10px] px-2 py-1 border border-terracotta text-terracotta">#urgent</span>
+              <div class="font-mono text-base font-medium">Local-first</div>
+              <div class="font-mono text-sm text-muted">Your data, your rules</div>
+            </div>
+          </div>
+          <div class="font-mono text-sm text-muted space-y-3">
+            <div class="flex items-center gap-3"><span class="text-terracotta">○</span> No cloud required</div>
+            <div class="flex items-center gap-3"><span class="text-terracotta">○</span> Files on your drive</div>
+            <div class="flex items-center gap-3"><span class="text-terracotta">○</span> Full control</div>
+            <div class="flex items-center gap-3"><span class="text-terracotta">○</span> Git auto-sync</div>
+            <div class="flex items-center gap-3"><span class="text-terracotta">○</span> True ownership</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Card: Search (top-right, interactive) -->
+      <div class="floating-card floating-card-right hidden md:block absolute -right-28 -top-8 z-10">
+        <div class="bg-paper border border-line p-8 shadow-2xl w-96">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-terracotta/10 flex items-center justify-center">
+              <svg class="w-6 h-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-mono text-base font-medium">Instant Search</div>
+              <div class="font-mono text-sm text-muted">Find anything in milliseconds</div>
+            </div>
+          </div>
+          <div class="search-input bg-surface border border-line rounded-lg p-4 flex items-center gap-3 mb-4 pointer-events-none">
+            <svg class="w-5 h-5 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input 
+              type="text" 
+              id="demo-search-input"
+              placeholder="Search your notes..." 
+              readonly
+              class="bg-transparent border-none outline-none font-mono text-sm text-ink w-full placeholder:text-muted"
+            />
+            <div class="search-cursor w-px h-5 bg-terracotta animate-pulse"></div>
+          </div>
+          <div id="search-results" class="font-mono text-sm space-y-1 min-h-[100px]">
+            <div class="search-result flex items-center justify-between text-muted hover:bg-surface px-3 py-2 rounded cursor-pointer" data-query="api">
+              <span>Designing the V2 API</span>
+              <span class="text-terracotta">100%</span>
+            </div>
+            <div class="search-result flex items-center justify-between text-muted hover:bg-surface px-3 py-2 rounded cursor-pointer" data-query="system">
+              <span>System Architecture</span>
+              <span class="text-terracotta">87%</span>
+            </div>
+            <div class="search-result flex items-center justify-between text-muted hover:bg-surface px-3 py-2 rounded cursor-pointer" data-query="design">
+              <span>Design Patterns</span>
+              <span class="text-terracotta">72%</span>
+            </div>
+            <div class="search-result flex items-center justify-between text-muted hover:bg-surface px-3 py-2 rounded cursor-pointer" data-query="journal">
+              <span>Journal / 2024</span>
+              <span class="text-terracotta">65%</span>
+            </div>
+            <div class="search-result flex items-center justify-between text-muted hover:bg-surface px-3 py-2 rounded cursor-pointer" data-query="notes">
+              <span>Rust Notes</span>
+              <span class="text-terracotta">48%</span>
+            </div>
+          </div>
+            <div class="mt-3 font-mono text-xs text-muted text-right">
+              <span id="result-count">5</span> results
+            </div>
+        </div>
+      </div>
+
+      <!-- Mockup -->
+      <div class="mockup-animate bg-paper border border-line p-2 md:p-4 shadow-2xl shadow-ink/5">
+        <div class="border border-line bg-surface flex flex-col md:flex-row h-[600px] transition-colors cursor-pointer duration-150">
+          <!-- Sidebar -->
+          <div class="w-full md:w-64 border-b md:border-b-0 md:border-r border-line p-6 flex flex-col gap-8 bg-paper/50 transition-colors cursor-pointer duration-150">
+            <div class="flex gap-2">
+              <div class="w-3 h-3 rounded-full border border-line"></div>
+              <div class="w-3 h-3 rounded-full border border-line"></div>
+              <div class="w-3 h-3 rounded-full border border-line"></div>
+            </div>
+            
+            <div class="space-y-6 flex-1">
+              <div>
+                <div class="font-mono text-[10px] uppercase tracking-widest text-muted mb-3">Folders</div>
+                <ul class="font-mono text-xs space-y-2 text-ink/80">
+                  <li class="flex items-center gap-2"><span class="text-terracotta">▾</span> Architecture</li>
+                  <li class="flex items-center gap-2 pl-4 text-muted">system-design.md</li>
+                  <li class="flex items-center gap-2 pl-4">api-v2-draft.md</li>
+                  <li class="flex items-center gap-2 mt-2"><span class="text-muted">▸</span> Journal</li>
+                  <li class="flex items-center gap-2"><span class="text-muted">▸</span> Drafts</li>
+                </ul>
+              </div>
+              <div>
+                <div class="font-mono text-[10px] uppercase tracking-widest text-muted mb-3">Tags</div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="font-mono text-[10px] px-2 py-1 border border-line text-muted">#rust</span>
+                  <span class="font-mono text-[10px] px-2 py-1 border border-line text-muted">#ideas</span>
+                  <span class="font-mono text-[10px] px-2 py-1 border border-terracotta text-terracotta">#urgent</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        
-        <!-- Editor -->
-        <div class="flex-1 p-8 md:p-16 overflow-hidden relative">
-          <div class="max-w-2xl mx-auto">
-            <div class="font-mono text-[10px] text-muted mb-8 flex justify-between">
-              <span>api-v2-draft.md</span>
-              <span>Synced just now</span>
-            </div>
-            <h2 class="font-sans text-4xl mb-6">Designing the V2 API</h2>
-            <div class="font-sans text-lg leading-relaxed space-y-6 text-ink/90">
-              <p>The transition to the new architecture requires a fundamental rethink of how we handle state. Instead of pushing updates from the server, we should consider a <span class="font-mono text-sm bg-line/50 px-1">pull-based</span> approach for the initial sync, followed by delta updates.</p>
-              <p>Key considerations for the new endpoint:</p>
-              <ul class="list-disc pl-6 space-y-2 font-sans">
-                <li>Idempotency is non-negotiable for all <span class="font-mono text-sm bg-line/50 px-1">POST</span> requests.</li>
-                <li>We need to support pagination out of the box. Cursor-based is preferred over offset.</li>
-              </ul>
-              <blockquote class="border-l-2 border-terracotta pl-6 italic text-muted my-8">
-                "Complexity is the enemy of execution. Keep the surface area small."
-              </blockquote>
-            </div>
-          </div>
           
-          <!-- Fake cursor -->
-          <div id="fake-cursor" class="absolute w-0.5 h-6 bg-terracotta top-[380px] left-[280px] hidden md:block"></div>
+          <!-- Editor -->
+          <div class="flex-1 p-8 md:p-16 overflow-hidden relative">
+            <div class="max-w-2xl mx-auto">
+              <div class="font-mono text-[10px] text-muted mb-8 flex justify-between">
+                <span>api-v2-draft.md</span>
+                <span>Synced just now</span>
+              </div>
+              <h2 class="font-sans text-4xl mb-6">Designing the V2 API</h2>
+              <div class="font-sans text-lg leading-relaxed space-y-6 text-ink/90">
+                <p>The transition to the new architecture requires a fundamental rethink of how we handle state. Instead of pushing updates from the server, we should consider a <span class="font-mono text-sm bg-line/50 px-1">pull-based</span> approach for the initial sync, followed by delta updates.</p>
+                <p>Key considerations for the new endpoint:</p>
+                <ul class="list-disc pl-6 space-y-2 font-sans">
+                  <li>Idempotency is non-negotiable for all <span class="font-mono text-sm bg-line/50 px-1">POST</span> requests.</li>
+                  <li>We need to support pagination out of the box. Cursor-based is preferred over offset.</li>
+                </ul>
+                <blockquote class="border-l-2 border-terracotta pl-6 italic text-muted my-8">
+                  "Complexity is the enemy of execution. Keep the surface area small."
+                </blockquote>
+              </div>
+            </div>
+            
+            <!-- Fake cursor -->
+            <div id="fake-cursor" class="absolute w-0.5 h-6 bg-terracotta top-[380px] left-[280px] hidden md:block"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -284,6 +366,19 @@ import Layout from '../layouts/Layout.astro';
     }
   }, 400);
 
+  // Floating cards animation
+  setTimeout(() => {
+    const cards = document.querySelectorAll('.floating-card');
+    cards.forEach((el, index) => {
+      const element = el as HTMLElement;
+      animate(
+        element,
+        { opacity: [0, 1], y: [20, 0], scale: [0.9, 1] },
+        { duration: 0.5, delay: index * 0.1, easing: [0.2, 0.6, 0.3, 1] }
+      );
+    });
+  }, 800);
+
   // Feature cards scroll animation
   document.querySelectorAll('.feature-card').forEach((el, index) => {
     const element = el as HTMLElement;
@@ -313,5 +408,78 @@ import Layout from '../layouts/Layout.astro';
       { opacity: [1, 0, 1] },
       { repeat: Infinity, duration: 1 }
     );
+  }
+
+  // Interactive search functionality
+  const searchInput = document.getElementById('demo-search-input') as HTMLInputElement;
+  const searchResults = document.getElementById('search-results');
+  const resultCountEl = document.getElementById('result-count');
+  
+  if (searchInput && searchResults) {
+    const allResults = searchResults.querySelectorAll('.search-result');
+    
+    searchInput.addEventListener('input', (e) => {
+      const query = (e.target as HTMLInputElement).value.toLowerCase();
+      let visibleCount = 0;
+      
+      allResults.forEach((result) => {
+        const el = result as HTMLElement;
+        const dataQuery = el.dataset.query || '';
+        const text = el.textContent?.toLowerCase() || '';
+        
+        if (query === '' || text.includes(query) || dataQuery.includes(query)) {
+          el.style.display = 'flex';
+          visibleCount++;
+        } else {
+          el.style.display = 'none';
+        }
+      });
+      
+      if (resultCountEl) {
+        resultCountEl.textContent = visibleCount.toString();
+      }
+    });
+
+    // Auto-typing demo animation - runs continuously
+    const demoPhrases = ['api', 'system', 'design', 'journal'];
+    let demoIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeDemo() {
+      const currentPhrase = demoPhrases[demoIndex];
+      
+      if (!isDeleting) {
+        searchInput.value = currentPhrase.substring(0, charIndex + 1);
+        
+        // Trigger the filter
+        searchInput.dispatchEvent(new Event('input'));
+        
+        charIndex++;
+        
+        if (charIndex >= currentPhrase.length) {
+          isDeleting = true;
+          setTimeout(typeDemo, 1500);
+          return;
+        }
+      } else {
+        searchInput.value = currentPhrase.substring(0, charIndex - 1);
+        
+        // Trigger the filter
+        searchInput.dispatchEvent(new Event('input'));
+        
+        charIndex--;
+        
+        if (charIndex <= 0) {
+          isDeleting = false;
+          demoIndex = (demoIndex + 1) % demoPhrases.length;
+        }
+      }
+      
+      setTimeout(typeDemo, isDeleting ? 50 : 120);
+    }
+
+    // Start demo after cards animate in
+    setTimeout(typeDemo, 2500);
   }
 </script>
