@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout.astro';
   <nav class="p-6 md:p-12 flex justify-between items-center">
     <div class="font-sans text-2xl tracking-tight">Glade.</div>
     <div class="flex items-center gap-6">
-      <button id="theme-toggle" class="text-muted hover:text-ink transition-colors" aria-label="Toggle dark mode">
+      <button id="theme-toggle" class="text-muted hover:text-ink transition-colors cursor-pointer" aria-label="Toggle dark mode">
         <svg id="sun-icon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
@@ -23,22 +23,21 @@ import Layout from '../layouts/Layout.astro';
   <section class="px-6 md:px-12 pt-20 pb-32 max-w-7xl mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
       <div class="lg:col-span-8">
-        <div data-animate data-opacity="0" data-y="20" class="font-mono text-terracotta text-sm uppercase tracking-widest mb-6">
-          Glade
-        </div>
-        <h1 data-animate data-opacity="0" data-y="30" data-delay="100" class="font-sans text-6xl md:text-8xl lg:text-[9rem] leading-[0.9] tracking-tight">
-          Quiet space <br/>
-          <span class="italic text-muted">for loud minds.</span>
+        <h1 class="hero-animate font-sans text-6xl md:text-8xl lg:text-[10rem] leading-[0.9] tracking-tight">
+          Glade.
         </h1>
+        <p class="hero-animate font-sans text-2xl md:text-3xl lg:text-4xl italic text-muted mt-6">
+          Quiet space for loud minds.
+        </p>
       </div>
       <div class="lg:col-span-4 pb-4">
-        <div data-animate data-opacity="0" data-delay="400" class="flex flex-col items-start gap-8">
+        <div class="hero-animate flex flex-col items-start gap-8">
           <p class="font-mono text-sm leading-relaxed text-muted max-w-xs">
             A minimal desktop note-taking app for developers and writers. Local-first, markdown-native, and synced via Git.
           </p>
-          <button class="group flex items-center gap-4 bg-ink text-paper px-6 py-4 hover:bg-terracotta transition-colors duration-300">
-            <span class="font-mono text-xs uppercase tracking-wider">Download for macOS / Linux</span>
-            <svg class="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button class="flex items-center gap-4 bg-ink text-paper px-6 py-4 hover:bg-terracotta transition-colors cursor-pointer duration-150">
+<span id="download-text" class="font-mono text-xs uppercase tracking-wider">Download for macOS / Linux</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
             </svg>
           </button>
@@ -48,11 +47,11 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- App Mockup -->
-  <section class="px-6 md:px-12 py-24">
-    <div data-animate data-opacity="0" data-y="40" class="max-w-6xl mx-auto bg-paper border border-line p-2 md:p-4 shadow-2xl shadow-ink/5">
-      <div class="border border-line bg-surface flex flex-col md:flex-row h-[600px] transition-colors duration-300">
+  <section class="px-6 md:px-12 pt-64">
+    <div class="mockup-animate max-w-6xl mx-auto bg-paper border border-line p-2 md:p-4 shadow-2xl shadow-ink/5">
+      <div class="border border-line bg-surface flex flex-col md:flex-row h-[600px] transition-colors cursor-pointer duration-150">
         <!-- Sidebar -->
-        <div class="w-full md:w-64 border-b md:border-b-0 md:border-r border-line p-6 flex flex-col gap-8 bg-paper/50 transition-colors duration-300">
+        <div class="w-full md:w-64 border-b md:border-b-0 md:border-r border-line p-6 flex flex-col gap-8 bg-paper/50 transition-colors cursor-pointer duration-150">
           <div class="flex gap-2">
             <div class="w-3 h-3 rounded-full border border-line"></div>
             <div class="w-3 h-3 rounded-full border border-line"></div>
@@ -113,39 +112,84 @@ import Layout from '../layouts/Layout.astro';
   <section class="py-32 px-6 md:px-12 max-w-7xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-32">
       
-      <!-- Feature 1 -->
-      <div data-animate data-opacity="0" data-y="30" class="flex flex-col gap-6 scroll-trigger">
+      <!-- Feature 1: Live Markdown -->
+      <div class="feature-card flex flex-col gap-6">
+        <div class="w-12 h-12 mb-2">
+          <svg class="w-full h-full text-terracotta" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M8 8h32v32H8z" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 18h16M16 24h16M16 30h10" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M28 30l4-4M32 26l-4 4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <div class="font-mono text-terracotta text-sm">01</div>
         <h3 class="font-sans text-4xl md:text-5xl tracking-tight">Live Markdown.</h3>
         <p class="font-mono text-sm leading-relaxed text-muted">
-          Write in plain text. See it beautifully rendered in real-time. No modes to switch, no clutter to hide. Just your words, structured perfectly as you type.
+          Write in plain text, see it beautifully rendered in real-time. No modes to switch, no clutter to hide. Just your words, structured perfectly as you type.
         </p>
       </div>
 
-      <!-- Feature 2 -->
-      <div data-animate data-opacity="0" data-y="30" data-delay="200" class="flex flex-col gap-6 md:mt-32 scroll-trigger">
+      <!-- Feature 2: Local & Git Synced -->
+      <div class="feature-card flex flex-col gap-6 md:mt-32">
+        <div class="w-12 h-12 mb-2">
+          <svg class="w-full h-full text-terracotta" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="24" r="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="36" cy="12" r="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="36" cy="36" r="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15 24h6l3-6h6l3 6h6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <div class="font-mono text-terracotta text-sm">02</div>
         <h3 class="font-sans text-4xl md:text-5xl tracking-tight">Local & Git Synced.</h3>
         <p class="font-mono text-sm leading-relaxed text-muted">
-          Your notes are just files on your hard drive. Glade commits and pushes them to your private repository automatically. True ownership, version control for your brain.
+          Your notes are files on your drive. Glade commits and pushes them to your private repo automatically. True ownership, version control for your brain.
         </p>
       </div>
 
-      <!-- Feature 3 -->
-      <div data-animate data-opacity="0" data-y="30" class="flex flex-col gap-6 scroll-trigger">
+      <!-- Feature 3: Folders & Tags -->
+      <div class="feature-card flex flex-col gap-6">
+        <div class="w-12 h-12 mb-2">
+          <svg class="w-full h-full text-terracotta" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 12h16l4 4h20v28H4z" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20 16v24M12 24h16" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="26" y="28" width="8" height="6" rx="1" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <div class="font-mono text-terracotta text-sm">03</div>
         <h3 class="font-sans text-4xl md:text-5xl tracking-tight">Folders & Tags.</h3>
         <p class="font-mono text-sm leading-relaxed text-muted">
-          Structure your thoughts your way. Deep folder hierarchies for the rigid, flexible tagging for the fluid. Keep everything within reach without feeling overwhelmed.
+          Structure your thoughts your way. Deep hierarchies for the rigid, flexible tagging for the fluid. Keep everything within reach without feeling overwhelmed.
         </p>
       </div>
 
-      <!-- Feature 4 -->
-      <div data-animate data-opacity="0" data-y="30" data-delay="200" class="flex flex-col gap-6 md:mt-32 scroll-trigger">
+      <!-- Feature 4: Instant Search -->
+      <div class="feature-card flex flex-col gap-6 md:mt-32">
+        <div class="w-12 h-12 mb-2">
+          <svg class="w-full h-full text-terracotta" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="22" cy="22" r="9" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M32 32l8 8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M26 22h.01M22 18v.01M22 26v.01M18 22h.01" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <div class="font-mono text-terracotta text-sm">04</div>
         <h3 class="font-sans text-4xl md:text-5xl tracking-tight">Instant Search.</h3>
         <p class="font-mono text-sm leading-relaxed text-muted">
-          Find anything instantly. A lightning-fast local search engine built in Rust that respects your privacy and doesn't index your life to the cloud.
+          Find anything in milliseconds. A local search engine built in Rust respects your privacy—your data never leaves your machine.
+        </p>
+      </div>
+
+      <!-- Feature 5: Keyboard First -->
+      <div class="feature-card flex flex-col gap-6 md:col-span-2 md:w-1/2 md:mx-auto">
+        <div class="w-12 h-12 mb-2">
+          <svg class="w-full h-full text-terracotta" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="4" y="12" width="40" height="24" rx="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 18h4M8 22h4M12 18h3M12 22h3M17 18h14M17 22h14M33 18h3M33 22h3M36 18h4M36 22h4" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="18" y="26" width="12" height="3" rx="1" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="font-mono text-terracotta text-sm">05</div>
+        <h3 class="font-sans text-4xl md:text-5xl tracking-tight">Keyboard First.</h3>
+        <p class="font-mono text-sm leading-relaxed text-muted">
+          Never leave the keyboard. Every action is a shortcut away. Navigate, search, and format without touching your mouse.
         </p>
       </div>
 
@@ -155,7 +199,7 @@ import Layout from '../layouts/Layout.astro';
   <!-- Large Quote -->
   <section class="py-32 px-6 md:px-12 border-y border-line my-20">
     <div class="max-w-4xl mx-auto text-center">
-      <div data-animate data-opacity="0" class="font-sans text-3xl md:text-5xl leading-tight italic text-ink/80 scroll-trigger">
+      <div class="quote-animate font-sans text-3xl md:text-5xl leading-tight italic text-ink/80">
         "A tool should be invisible. It should get out of the way and let the work speak."
       </div>
     </div>
@@ -164,22 +208,39 @@ import Layout from '../layouts/Layout.astro';
   <!-- Footer CTA -->
   <footer class="py-32 px-6 md:px-12 text-center flex flex-col items-center gap-12">
     <div class="font-sans text-6xl md:text-8xl tracking-tight">Glade.</div>
-    <button class="group flex items-center gap-4 bg-transparent border border-ink text-ink px-8 py-4 hover:bg-ink hover:text-paper transition-colors duration-300">
-      <span class="font-mono text-xs uppercase tracking-wider">Download for macOS / Linux</span>
-      <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <button class="flex items-center gap-4 bg-transparent border border-ink text-ink px-8 py-4 hover:bg-ink hover:text-paper transition-colors cursor-pointer duration-150">
+      <span id="download-text-footer" class="font-mono text-xs uppercase tracking-wider">Download for macOS / Linux</span>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
       </svg>
     </button>
-    <div class="mt-20 font-mono text-[10px] uppercase tracking-widest text-muted flex gap-6">
-      <a href="" class="hover:text-ink transition-colors">Twitter</a>
-      <a href="" class="hover:text-ink transition-colors">GitHub</a>
-      <a href="" class="hover:text-ink transition-colors">Privacy</a>
+    <div class="font-mono text-base uppercase tracking-widest text-ink flex gap-8">
+      <a href="" class="hover:text-terracotta transition-colors cursor-pointer">Twitter</a>
+      <a href="" class="hover:text-terracotta transition-colors cursor-pointer">GitHub</a>
+      <a href="" class="hover:text-terracotta transition-colors cursor-pointer">Privacy</a>
     </div>
+    <div class="font-mono text-sm text-muted">© Glade 2026 · Made by <a href="https://x.com/styltsou" target="_blank" class="hover:text-terracotta transition-colors cursor-pointer text-terracotta">@styltsou</a></div>
   </footer>
 </Layout>
 
 <script>
   import { animate, inView } from "motion";
+
+  // OS detection for download button text
+  function getOS() {
+    const ua = navigator.userAgent.toLowerCase();
+    if (ua.includes('win')) return 'Windows';
+    if (ua.includes('mac')) return 'macOS';
+    if (ua.includes('linux')) return 'Linux';
+    return null;
+  }
+
+  const os = getOS();
+  const downloadText = document.getElementById('download-text');
+  const downloadTextFooter = document.getElementById('download-text-footer');
+  const text = os ? `Download for ${os}` : 'Download for macOS / Linux';
+  downloadText && (downloadText.textContent = text);
+  downloadTextFooter && (downloadTextFooter.textContent = text);
 
   // Theme toggle
   const themeToggle = document.getElementById('theme-toggle');
@@ -201,36 +262,47 @@ import Layout from '../layouts/Layout.astro';
 
   updateThemeIcons();
 
-  // Initial page load animations
-  document.querySelectorAll('[data-animate]:not(.scroll-trigger)').forEach((el) => {
+  // Hero animations - run immediately on page load
+  document.querySelectorAll('.hero-animate').forEach((el, index) => {
     const element = el as HTMLElement;
-    const opacity = element.dataset.opacity || '0';
-    const y = element.dataset.y || '0';
-    const delay = element.dataset.delay ? parseFloat(element.dataset.delay) : 0;
-    const duration = 0.8;
-
     animate(
       element,
-      { opacity: [parseFloat(opacity), 1], y: [parseFloat(y), 0] },
-      { duration, delay, easing: [0.2, 0.6, 0.3, 1] }
+      { opacity: [0, 1], y: [20, 0] },
+      { duration: 0.5, delay: index * 0.1, easing: [0.2, 0.6, 0.3, 1] }
     );
   });
 
-  // Scroll-triggered animations using inView
-  document.querySelectorAll('.scroll-trigger').forEach((el) => {
+  // Mockup animation
+  setTimeout(() => {
+    const mockup = document.querySelector('.mockup-animate');
+    if (mockup) {
+      animate(
+        mockup,
+        { opacity: [0, 1], y: [40, 0] },
+        { duration: 0.8, easing: [0.2, 0.6, 0.3, 1] }
+      );
+    }
+  }, 400);
+
+  // Feature cards scroll animation
+  document.querySelectorAll('.feature-card').forEach((el, index) => {
     const element = el as HTMLElement;
     inView(element, () => {
-      const opacity = element.dataset.opacity || '0';
-      const y = element.dataset.y || '0';
-      const delay = element.dataset.delay ? parseFloat(element.dataset.delay) : 0;
-      const duration = parseFloat(element.dataset.duration) || 0.8;
-
       animate(
         element,
-        { opacity: [parseFloat(opacity), 1], y: [parseFloat(y), 0] },
-        { duration, delay, easing: [0.2, 0.6, 0.3, 1] }
+        { opacity: [0, 1], y: [30, 0] },
+        { duration: 0.5, delay: index * 0.05, easing: [0.2, 0.6, 0.3, 1] }
       );
     }, { margin: "-100px" });
+  });
+
+  // Quote animation
+  inView('.quote-animate', (element) => {
+    animate(
+      element,
+      { opacity: [0, 1] },
+      { duration: 0.8, easing: [0.2, 0.6, 0.3, 1] }
+    );
   });
 
   // Blinking cursor animation
