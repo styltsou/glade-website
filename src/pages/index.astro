@@ -15,7 +15,7 @@ import Layout from '../layouts/Layout.astro';
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
         </svg>
       </button>
-      <div class="font-mono text-xs uppercase tracking-widest text-muted">v1.0</div>
+      <div class="font-mono text-xs uppercase tracking-widest text-muted">v0.1.0</div>
     </div>
   </nav>
 
@@ -33,159 +33,32 @@ import Layout from '../layouts/Layout.astro';
       <div class="lg:col-span-4 pb-4">
         <div class="hero-animate flex flex-col items-start gap-8">
           <p class="font-mono text-sm leading-relaxed text-muted max-w-xs">
-            A minimal desktop note-taking app for developers and writers. Local-first, markdown-native, and synced via Git.
+            A desktop note-taking app that keeps things simple. Your notes live on your machine as plain markdown files.
           </p>
-          <button class="flex items-center gap-4 bg-ink text-paper px-6 py-4 hover:bg-terracotta transition-colors cursor-pointer duration-150">
-<span id="download-text" class="font-mono text-xs uppercase tracking-wider">Download for macOS / Linux</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          <a href="https://github.com/styltsou/glade" target="_blank" class="flex items-center gap-4 bg-ink text-paper px-6 py-4 hover:bg-terracotta transition-colors cursor-pointer duration-150">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
             </svg>
-          </button>
+            <span class="font-mono text-xs uppercase tracking-wider">View on GitHub</span>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- App Mockup -->
-  <section class="px-6 md:px-12 pt-64">
-    <div class="mockup-container max-w-6xl mx-auto relative">
-      <!-- Floating Card: Local-first (left, more towards bottom) -->
-      <div class="floating-card floating-card-left hidden lg:block absolute -left-20 bottom-32 z-10">
-        <div class="bg-paper border border-line p-8 shadow-2xl w-96">
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-12 h-12 rounded-xl bg-terracotta/10 flex items-center justify-center">
-              <svg class="w-6 h-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-              </svg>
-            </div>
-            <div>
-              <div class="font-mono text-base font-medium">Local-first</div>
-              <div class="font-mono text-sm text-muted">Your data, your rules</div>
-            </div>
-          </div>
-          <div class="font-mono text-sm text-muted space-y-3">
-            <div class="flex items-center gap-3"><span class="text-terracotta">○</span> No cloud required</div>
-            <div class="flex items-center gap-3"><span class="text-terracotta">○</span> Files on your drive</div>
-            <div class="flex items-center gap-3"><span class="text-terracotta">○</span> Full control</div>
-            <div class="flex items-center gap-3"><span class="text-terracotta">○</span> Git auto-sync</div>
-            <div class="flex items-center gap-3"><span class="text-terracotta">○</span> True ownership</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Floating Card: Search (top-right, interactive) -->
-      <div class="floating-card floating-card-right hidden lg:block absolute -right-16 -top-8 z-10">
-        <div class="bg-paper border border-line p-8 shadow-2xl w-96">
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-12 h-12 rounded-xl bg-terracotta/10 flex items-center justify-center">
-              <svg class="w-6 h-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </div>
-            <div>
-              <div class="font-mono text-base font-medium">Instant Search</div>
-              <div class="font-mono text-sm text-muted">Find anything in milliseconds</div>
-            </div>
-          </div>
-          <div class="search-input bg-surface border border-line rounded-lg p-4 flex items-center gap-3 mb-4 pointer-events-none">
-            <svg class="w-5 h-5 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            <input 
-              type="text" 
-              id="demo-search-input"
-              placeholder="Search your notes..." 
-              readonly
-              class="bg-transparent border-none outline-none font-mono text-sm text-ink w-full placeholder:text-muted"
-            />
-            <div class="search-cursor w-px h-5 bg-terracotta animate-pulse"></div>
-          </div>
-          <div id="search-results" class="font-mono text-sm space-y-1 min-h-[100px]">
-            <div class="search-result flex items-center justify-between text-muted hover:bg-surface px-3 py-2 rounded cursor-pointer" data-query="api">
-              <span>Designing the V2 API</span>
-              <span class="text-terracotta">100%</span>
-            </div>
-            <div class="search-result flex items-center justify-between text-muted hover:bg-surface px-3 py-2 rounded cursor-pointer" data-query="system">
-              <span>System Architecture</span>
-              <span class="text-terracotta">87%</span>
-            </div>
-            <div class="search-result flex items-center justify-between text-muted hover:bg-surface px-3 py-2 rounded cursor-pointer" data-query="design">
-              <span>Design Patterns</span>
-              <span class="text-terracotta">72%</span>
-            </div>
-            <div class="search-result flex items-center justify-between text-muted hover:bg-surface px-3 py-2 rounded cursor-pointer" data-query="journal">
-              <span>Journal / 2024</span>
-              <span class="text-terracotta">65%</span>
-            </div>
-            <div class="search-result flex items-center justify-between text-muted hover:bg-surface px-3 py-2 rounded cursor-pointer" data-query="notes">
-              <span>Rust Notes</span>
-              <span class="text-terracotta">48%</span>
-            </div>
-          </div>
-            <div class="mt-3 font-mono text-xs text-muted text-right">
-              <span id="result-count">5</span> results
-            </div>
-        </div>
-      </div>
-
-      <!-- Mockup -->
+  <!-- App Screenshot -->
+  <section class="px-6 md:px-12 pt-16">
+    <div class="mockup-container max-w-6xl mx-auto">
       <div class="mockup-animate bg-paper border border-line p-2 md:p-4 shadow-2xl shadow-ink/5">
-        <div class="border border-line bg-surface flex flex-col md:flex-row h-[500px] md:h-[600px] transition-colors cursor-pointer duration-150">
-          <!-- Sidebar -->
-          <div class="w-full md:w-64 border-b md:border-b-0 md:border-r border-line p-6 flex flex-col gap-8 bg-paper/50 transition-colors cursor-pointer duration-150">
-            <div class="flex gap-2">
-              <div class="w-3 h-3 rounded-full border border-line"></div>
-              <div class="w-3 h-3 rounded-full border border-line"></div>
-              <div class="w-3 h-3 rounded-full border border-line"></div>
-            </div>
-            
-            <div class="space-y-6 flex-1">
-              <div>
-                <div class="font-mono text-[10px] uppercase tracking-widest text-muted mb-3">Folders</div>
-                <ul class="font-mono text-xs space-y-2 text-ink/80">
-                  <li class="flex items-center gap-2"><span class="text-terracotta">▾</span> Architecture</li>
-                  <li class="flex items-center gap-2 pl-4 text-muted">system-design.md</li>
-                  <li class="flex items-center gap-2 pl-4">api-v2-draft.md</li>
-                  <li class="flex items-center gap-2 mt-2"><span class="text-muted">▸</span> Journal</li>
-                  <li class="flex items-center gap-2"><span class="text-muted">▸</span> Drafts</li>
-                </ul>
-              </div>
-              <div>
-                <div class="font-mono text-[10px] uppercase tracking-widest text-muted mb-3">Tags</div>
-                <div class="flex flex-wrap gap-2">
-                  <span class="font-mono text-[10px] px-2 py-1 border border-line text-muted">#rust</span>
-                  <span class="font-mono text-[10px] px-2 py-1 border border-line text-muted">#ideas</span>
-                  <span class="font-mono text-[10px] px-2 py-1 border border-terracotta text-terracotta">#urgent</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Editor -->
-          <div class="flex-1 p-8 md:p-16 overflow-hidden relative">
-            <div class="max-w-2xl mx-auto">
-              <div class="font-mono text-[10px] text-muted mb-8 flex justify-between">
-                <span>api-v2-draft.md</span>
-                <span>Synced just now</span>
-              </div>
-              <h2 class="font-sans text-4xl mb-6">Designing the V2 API</h2>
-              <div class="font-sans text-lg leading-relaxed space-y-6 text-ink/90">
-                <p>The transition to the new architecture requires a fundamental rethink of how we handle state. Instead of pushing updates from the server, we should consider a <span class="font-mono text-sm bg-line/50 px-1">pull-based</span> approach for the initial sync, followed by delta updates.</p>
-                <p>Key considerations for the new endpoint:</p>
-                <ul class="list-disc pl-6 space-y-2 font-sans">
-                  <li>Idempotency is non-negotiable for all <span class="font-mono text-sm bg-line/50 px-1">POST</span> requests.</li>
-                  <li>We need to support pagination out of the box. Cursor-based is preferred over offset.</li>
-                </ul>
-                <blockquote class="border-l-2 border-terracotta pl-6 italic text-muted my-8">
-                  "Complexity is the enemy of execution. Keep the surface area small."
-                </blockquote>
-              </div>
-            </div>
-            
-            <!-- Fake cursor -->
-            <div id="fake-cursor" class="absolute w-0.5 h-6 bg-terracotta top-[380px] left-[280px] hidden md:block"></div>
-          </div>
-        </div>
+        <img 
+          src="/images/app-screenshot-light.png"
+          alt="Glade app screenshot"
+          class="w-full h-auto"
+          id="app-screenshot"
+        />
+        <p class="font-mono text-sm text-muted text-center py-8" id="screenshot-fallback">
+          Add screenshots to <code class="bg-line/50 px-1">public/images/app-screenshot-light.png</code> and <code class="bg-line/50 px-1">app-screenshot-dark.png</code>
+        </p>
       </div>
     </div>
   </section>
@@ -198,32 +71,31 @@ import Layout from '../layouts/Layout.astro';
       <div class="feature-card flex flex-col gap-6">
         <div class="w-12 h-12 mb-2">
           <svg class="w-full h-full text-terracotta" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M8 8h32v32H8z" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M16 18h16M16 24h16M16 30h10" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M28 30l4-4M32 26l-4 4" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="6" y="10" width="36" height="28" rx="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 30V18l4 8 4-8v12" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M26 30V18l4 8 4-8v12" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <div class="font-mono text-terracotta text-sm">01</div>
         <h3 class="font-sans text-4xl md:text-5xl tracking-tight">Live Markdown.</h3>
         <p class="font-mono text-sm leading-relaxed text-muted">
-          Write in plain text, see it beautifully rendered in real-time. No modes to switch, no clutter to hide. Just your words, structured perfectly as you type.
+          Write in plain text and see it come to life as you type. No flipping between modes, no messing with formats. Just write.
         </p>
       </div>
 
-      <!-- Feature 2: Local & Git Synced -->
+      <!-- Feature 2: Mermaid Diagrams -->
       <div class="feature-card flex flex-col gap-6 md:mt-32">
         <div class="w-12 h-12 mb-2">
           <svg class="w-full h-full text-terracotta" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="24" r="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="36" cy="12" r="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="36" cy="36" r="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M15 24h6l3-6h6l3 6h6" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="7" y="10" width="14" height="10" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="27" y="10" width="14" height="10" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="17" y="28" width="14" height="10" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 20v4l7 4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M34 20v4l-7 4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <div class="font-mono text-terracotta text-sm">02</div>
-        <h3 class="font-sans text-4xl md:text-5xl tracking-tight">Local & Git Synced.</h3>
+        <h3 class="font-sans text-4xl md:text-5xl tracking-tight">Mermaid Diagrams.</h3>
         <p class="font-mono text-sm leading-relaxed text-muted">
-          Your notes are files on your drive. Glade commits and pushes them to your private repo automatically. True ownership, version control for your brain.
+          Drop a code block with the mermaid language tag and watch your diagrams render live. Flowcharts, sequence diagrams, Gantt charts. All inside your notes. Pop out to full screen to zoom, pan, and export as PNG.
         </p>
       </div>
 
@@ -231,15 +103,12 @@ import Layout from '../layouts/Layout.astro';
       <div class="feature-card flex flex-col gap-6">
         <div class="w-12 h-12 mb-2">
           <svg class="w-full h-full text-terracotta" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M4 12h16l4 4h20v28H4z" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M20 16v24M12 24h16" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="26" y="28" width="8" height="6" rx="1" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 14h14l4 4h22v22H4V14z" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <div class="font-mono text-terracotta text-sm">03</div>
         <h3 class="font-sans text-4xl md:text-5xl tracking-tight">Folders & Tags.</h3>
         <p class="font-mono text-sm leading-relaxed text-muted">
-          Structure your thoughts your way. Deep hierarchies for the rigid, flexible tagging for the fluid. Keep everything within reach without feeling overwhelmed.
+          Organize your notes however you like. Deep folder hierarchies if you want structure, flexible tags if you prefer to let things breathe. Everything stays easy to find.
         </p>
       </div>
 
@@ -249,29 +118,41 @@ import Layout from '../layouts/Layout.astro';
           <svg class="w-full h-full text-terracotta" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="22" cy="22" r="9" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M32 32l8 8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M26 22h.01M22 18v.01M22 26v.01M18 22h.01" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <div class="font-mono text-terracotta text-sm">04</div>
         <h3 class="font-sans text-4xl md:text-5xl tracking-tight">Instant Search.</h3>
         <p class="font-mono text-sm leading-relaxed text-muted">
-          Find anything in milliseconds. A local search engine built in Rust respects your privacy—your data never leaves your machine.
+          Type and find any note in a heartbeat. Powered by Rust, it respects your privacy. Your data never leaves your machine.
         </p>
       </div>
 
       <!-- Feature 5: Keyboard First -->
-      <div class="feature-card flex flex-col gap-6 md:col-span-2 md:w-1/2 md:mx-auto">
+      <div class="feature-card flex flex-col gap-6">
         <div class="w-12 h-12 mb-2">
           <svg class="w-full h-full text-terracotta" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="4" y="12" width="40" height="24" rx="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M8 18h4M8 22h4M12 18h3M12 22h3M17 18h14M17 22h14M33 18h3M33 22h3M36 18h4M36 22h4" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="18" y="26" width="12" height="3" rx="1" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="6" y="16" width="36" height="20" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 22h4M10 28h4M16 22h4M16 28h4M22 22h4M22 28h4M28 22h4M28 28h4M34 22h4M34 28h4" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="18" y="30" width="12" height="2" rx="1" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <div class="font-mono text-terracotta text-sm">05</div>
         <h3 class="font-sans text-4xl md:text-5xl tracking-tight">Keyboard First.</h3>
         <p class="font-mono text-sm leading-relaxed text-muted">
-          Never leave the keyboard. Every action is a shortcut away. Navigate, search, and format without touching your mouse.
+          Every action has a shortcut. Navigate, search, format, and manage your notes without leaving the keyboard. The command palette puts everything at your fingertips.
+        </p>
+      </div>
+
+      <!-- Feature 6: Ambient Sounds -->
+      <div class="feature-card flex flex-col gap-6 md:mt-32">
+        <div class="w-12 h-12 mb-2">
+          <svg class="w-full h-full text-terracotta" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M28 8l-12 8H8v16h8l12 8V8z" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M34 18c2 2 2 10 0 12" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M38 14c4 4 4 16 0 20" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="font-sans text-4xl md:text-5xl tracking-tight">Ambient Sounds.</h3>
+        <p class="font-mono text-sm leading-relaxed text-muted">
+          Rain, white noise, people sounds. Mix them together, dial in each volume, toggle everything from the status bar. A little background texture when you need it.
         </p>
       </div>
 
@@ -290,16 +171,15 @@ import Layout from '../layouts/Layout.astro';
   <!-- Footer CTA -->
   <footer class="py-32 px-6 md:px-12 text-center flex flex-col items-center gap-12">
     <div class="font-sans text-5xl md:text-7xl lg:text-8xl tracking-tight">Glade.</div>
-    <button class="flex items-center gap-4 bg-transparent border border-ink text-ink px-8 py-4 hover:bg-ink hover:text-paper transition-colors cursor-pointer duration-150">
-      <span id="download-text-footer" class="font-mono text-xs uppercase tracking-wider">Download for macOS / Linux</span>
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+    <a href="https://github.com/styltsou/glade" target="_blank" class="flex items-center gap-4 bg-transparent border border-ink text-ink px-8 py-4 hover:bg-ink hover:text-paper transition-colors cursor-pointer duration-150">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
       </svg>
-    </button>
+      <span class="font-mono text-xs uppercase tracking-wider">View on GitHub</span>
+    </a>
     <div class="font-mono text-base uppercase tracking-widest text-ink flex gap-8">
-      <a href="" class="hover:text-terracotta transition-colors cursor-pointer">Twitter</a>
-      <a href="" class="hover:text-terracotta transition-colors cursor-pointer">GitHub</a>
-      <a href="" class="hover:text-terracotta transition-colors cursor-pointer">Privacy</a>
+      <a href="https://x.com/styltsou" target="_blank" class="hover:text-terracotta transition-colors cursor-pointer">Twitter</a>
+      <a href="https://github.com/styltsou/glade" target="_blank" class="hover:text-terracotta transition-colors cursor-pointer">GitHub</a>
     </div>
     <div class="font-mono text-sm text-muted">© Glade 2026 · Made by <a href="https://x.com/styltsou" target="_blank" class="hover:text-terracotta transition-colors cursor-pointer text-terracotta">@styltsou</a></div>
   </footer>
@@ -307,22 +187,6 @@ import Layout from '../layouts/Layout.astro';
 
 <script>
   import { animate, inView } from "motion";
-
-  // OS detection for download button text
-  function getOS() {
-    const ua = navigator.userAgent.toLowerCase();
-    if (ua.includes('win')) return 'Windows';
-    if (ua.includes('mac')) return 'macOS';
-    if (ua.includes('linux')) return 'Linux';
-    return null;
-  }
-
-  const os = getOS();
-  const downloadText = document.getElementById('download-text');
-  const downloadTextFooter = document.getElementById('download-text-footer');
-  const text = os ? `Download for ${os}` : 'Download for macOS / Linux';
-  downloadText && (downloadText.textContent = text);
-  downloadTextFooter && (downloadTextFooter.textContent = text);
 
   // Theme toggle
   const themeToggle = document.getElementById('theme-toggle');
@@ -340,9 +204,33 @@ import Layout from '../layouts/Layout.astro';
     const isDark = document.documentElement.classList.contains('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
     updateThemeIcons();
+    updateScreenshot();
   });
 
   updateThemeIcons();
+
+  // Theme-aware screenshot
+  const screenshotImg = document.getElementById('app-screenshot') as HTMLImageElement;
+  const screenshotFallback = document.getElementById('screenshot-fallback');
+
+  function updateScreenshot() {
+    if (!screenshotImg) return;
+    const isDark = document.documentElement.classList.contains('dark');
+    screenshotImg.src = isDark ? '/images/app-screenshot-dark.png' : '/images/app-screenshot-light.png';
+  }
+
+  if (screenshotImg && screenshotFallback) {
+    screenshotImg.addEventListener('load', () => screenshotFallback.remove());
+    screenshotImg.addEventListener('error', () => {
+      screenshotImg.style.display = 'none';
+      screenshotFallback.style.display = 'block';
+    });
+    if (screenshotImg.complete) {
+      if (screenshotImg.naturalWidth > 0) screenshotFallback.remove();
+    }
+  }
+
+  updateScreenshot();
 
   // Hero animations - run immediately on page load
   document.querySelectorAll('.hero-animate').forEach((el, index) => {
@@ -366,19 +254,6 @@ import Layout from '../layouts/Layout.astro';
     }
   }, 400);
 
-  // Floating cards animation
-  setTimeout(() => {
-    const cards = document.querySelectorAll('.floating-card');
-    cards.forEach((el, index) => {
-      const element = el as HTMLElement;
-      animate(
-        element,
-        { opacity: [0, 1], y: [20, 0], scale: [0.9, 1] },
-        { duration: 0.5, delay: index * 0.1, easing: [0.2, 0.6, 0.3, 1] }
-      );
-    });
-  }, 800);
-
   // Feature cards scroll animation
   document.querySelectorAll('.feature-card').forEach((el, index) => {
     const element = el as HTMLElement;
@@ -400,86 +275,4 @@ import Layout from '../layouts/Layout.astro';
     );
   });
 
-  // Blinking cursor animation
-  const fakeCursor = document.getElementById('fake-cursor');
-  if (fakeCursor) {
-    animate(
-      fakeCursor,
-      { opacity: [1, 0, 1] },
-      { repeat: Infinity, duration: 1 }
-    );
-  }
-
-  // Interactive search functionality
-  const searchInput = document.getElementById('demo-search-input') as HTMLInputElement;
-  const searchResults = document.getElementById('search-results');
-  const resultCountEl = document.getElementById('result-count');
-  
-  if (searchInput && searchResults) {
-    const allResults = searchResults.querySelectorAll('.search-result');
-    
-    searchInput.addEventListener('input', (e) => {
-      const query = (e.target as HTMLInputElement).value.toLowerCase();
-      let visibleCount = 0;
-      
-      allResults.forEach((result) => {
-        const el = result as HTMLElement;
-        const dataQuery = el.dataset.query || '';
-        const text = el.textContent?.toLowerCase() || '';
-        
-        if (query === '' || text.includes(query) || dataQuery.includes(query)) {
-          el.style.display = 'flex';
-          visibleCount++;
-        } else {
-          el.style.display = 'none';
-        }
-      });
-      
-      if (resultCountEl) {
-        resultCountEl.textContent = visibleCount.toString();
-      }
-    });
-
-    // Auto-typing demo animation - runs continuously
-    const demoPhrases = ['api', 'system', 'design', 'journal'];
-    let demoIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeDemo() {
-      const currentPhrase = demoPhrases[demoIndex];
-      
-      if (!isDeleting) {
-        searchInput.value = currentPhrase.substring(0, charIndex + 1);
-        
-        // Trigger the filter
-        searchInput.dispatchEvent(new Event('input'));
-        
-        charIndex++;
-        
-        if (charIndex >= currentPhrase.length) {
-          isDeleting = true;
-          setTimeout(typeDemo, 1500);
-          return;
-        }
-      } else {
-        searchInput.value = currentPhrase.substring(0, charIndex - 1);
-        
-        // Trigger the filter
-        searchInput.dispatchEvent(new Event('input'));
-        
-        charIndex--;
-        
-        if (charIndex <= 0) {
-          isDeleting = false;
-          demoIndex = (demoIndex + 1) % demoPhrases.length;
-        }
-      }
-      
-      setTimeout(typeDemo, isDeleting ? 50 : 120);
-    }
-
-    // Start demo after cards animate in
-    setTimeout(typeDemo, 2500);
-  }
 </script>
