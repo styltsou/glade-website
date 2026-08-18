@@ -136,49 +136,4 @@ import Faq from '../components/Faq';
 
   if (downloadCta) downloadCta.textContent = `Download for ${operatingSystem}`;
 
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  document.querySelectorAll<HTMLDetailsElement>('.faq-item').forEach((details) => {
-    const summary = details.querySelector('summary');
-    const answer = details.querySelector<HTMLElement>('.faq-answer');
-    if (!summary || !answer || reduceMotion) return;
-
-    let animation: Animation | undefined;
-
-    summary.addEventListener('click', (event) => {
-      if (!details.open) return;
-
-      event.preventDefault();
-      animation?.cancel();
-      answer.style.overflow = 'hidden';
-
-      animation = answer.animate(
-        { height: [`${answer.offsetHeight}px`, '0px'], opacity: [1, 0] },
-        { duration: 240, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
-      );
-      animation.onfinish = () => {
-        details.open = false;
-        answer.style.overflow = '';
-        animation = undefined;
-      };
-    });
-
-    details.addEventListener('toggle', () => {
-      if (!details.open) return;
-
-      animation?.cancel();
-      answer.style.overflow = 'hidden';
-      const targetHeight = `${answer.scrollHeight}px`;
-
-      animation = answer.animate(
-        { height: ['0px', targetHeight], opacity: [0, 1] },
-        { duration: 280, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
-      );
-      animation.onfinish = () => {
-        answer.style.overflow = '';
-        animation = undefined;
-      };
-    });
-  });
-
 </script>
