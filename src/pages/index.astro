@@ -114,16 +114,17 @@ import Faq from '../components/Faq';
 <script>
   const root = document.documentElement;
   const themeToggle = document.getElementById('theme-toggle');
-  const screenshot = document.getElementById('app-screenshot') as HTMLImageElement | null;
+  const screenshotImages = Array.from(document.querySelectorAll('img[src*="app-screenshot"]'));
   const downloadCta = document.getElementById('download-cta');
 
   const syncTheme = () => {
     const isDark = root.classList.contains('dark');
     themeToggle?.setAttribute('aria-label', isDark ? 'Use light theme' : 'Use dark theme');
-    if (!screenshot) return;
-    screenshot.src = isDark
-      ? '/images/app-screenshot-dark.png'
-      : '/images/app-screenshot-light.png';
+    for (const img of screenshotImages) {
+      img.src = isDark
+        ? img.src.replace('app-screenshot-light', 'app-screenshot-dark')
+        : img.src.replace('app-screenshot-dark', 'app-screenshot-light');
+    }
   };
 
   themeToggle?.addEventListener('click', () => {
