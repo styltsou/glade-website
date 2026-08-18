@@ -26,7 +26,10 @@ import Faq from '../components/Faq';
     <section class="hero shell" aria-labelledby="hero-title">
       <h1 id="hero-title">A local-first<br />Markdown notebook.</h1>
       <div class="hero-actions" aria-label="Get Glade">
-        <a class="button button-primary" href="https://github.com/styltsou/glade" target="_blank" rel="noreferrer">Get Glade</a>
+        <a class="button button-primary" id="hero-cta" href="https://github.com/styltsou/glade" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5" /><path d="M12 15V3" /></svg>
+          <span class="download-label">Get Glade</span>
+        </a>
         <a class="button button-secondary" href="#features">Learn more</a>
       </div>
     </section>
@@ -141,7 +144,8 @@ import Faq from '../components/Faq';
         : 'your device';
 
   const headerCta = document.getElementById('header-cta');
-  for (const el of [headerCta, downloadCta]) {
+  const heroCta = document.getElementById('hero-cta');
+  for (const el of [headerCta, heroCta, downloadCta]) {
     const label = el?.querySelector('.download-label');
     if (label) label.textContent = `Download for ${operatingSystem}`;
   }
