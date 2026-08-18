@@ -1,10 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Faq from '../components/Faq';
 ---
 
 <Layout>
   <header class="site-header">
-    <a class="wordmark" href="#top" aria-label="Glade home">Glade<span>.</span></a>
+    <a class="wordmark" href="#top" aria-label="Glade home">Glade</a>
 
     <div class="header-actions">
       <button id="theme-toggle" class="icon-button" type="button" aria-label="Use dark theme" title="Toggle theme">
@@ -51,24 +52,47 @@ import Layout from '../layouts/Layout.astro';
     <section id="features" class="features shell" aria-labelledby="features-title">
       <h2 id="features-title">Everything you need.<br />Nothing in the way.</h2>
 
-      <div class="feature-grid">
-        <article>
-          <h3>Local-first</h3>
-          <p>Your notes are plain Markdown files, stored on your machine.</p>
+      <div class="bento-grid">
+        <article class="bento-card bento-note">
+          <div class="bento-copy">
+            <h3>A note for everything.</h3>
+            <p>Write in plain Markdown and keep every file on your machine.</p>
+          </div>
+          <div class="card-screen card-screen-main" aria-hidden="true">
+            <img src="/images/app-screenshot-light.png" alt="" />
+          </div>
         </article>
-        <article>
-          <h3>Clear structure</h3>
-          <p>Folders, tags, and fast search when you need to find something.</p>
+
+        <article class="bento-card bento-organize">
+          <div class="bento-copy">
+            <h3>Structure that stays light.</h3>
+            <p>Folders and tags when you need them.</p>
+          </div>
+          <div class="card-screen card-screen-sidebar" aria-hidden="true">
+            <img src="/images/app-screenshot-light.png" alt="" />
+          </div>
         </article>
-        <article>
-          <h3>Live Markdown</h3>
-          <p>Write naturally and see your documents take shape as you go.</p>
-        </article>
-        <article>
-          <h3>Built for focus</h3>
-          <p>Keyboard shortcuts and ambient sound when you want less distraction.</p>
+
+        <article class="bento-card bento-diagrams">
+          <div class="bento-copy">
+            <h3>See the whole thought.</h3>
+            <p>Turn Mermaid into diagrams, right in your notes.</p>
+          </div>
+          <div class="card-screen card-screen-diagram" aria-hidden="true">
+            <img src="/images/app-screenshot-light.png" alt="" />
+          </div>
         </article>
       </div>
+    </section>
+
+    <section class="faq shell" aria-labelledby="faq-title">
+      <h2 id="faq-title">Questions, answered.</h2>
+      <Faq client:load />
+    </section>
+
+    <section class="download-section shell" aria-labelledby="download-title">
+      <h2 id="download-title">Try Glade now.</h2>
+      <a id="download-cta" class="download-button" href="https://github.com/styltsou/glade" target="_blank" rel="noreferrer">Download Glade</a>
     </section>
   </main>
 
@@ -82,6 +106,7 @@ import Layout from '../layouts/Layout.astro';
   const root = document.documentElement;
   const themeToggle = document.getElementById('theme-toggle');
   const screenshot = document.getElementById('app-screenshot') as HTMLImageElement | null;
+  const downloadCta = document.getElementById('download-cta');
 
   const syncTheme = () => {
     const isDark = root.classList.contains('dark');
@@ -99,4 +124,61 @@ import Layout from '../layouts/Layout.astro';
   });
 
   syncTheme();
+
+  const platform = navigator.userAgentData?.platform || navigator.platform || navigator.userAgent;
+  const operatingSystem = /mac/i.test(platform)
+    ? 'macOS'
+    : /win/i.test(platform)
+      ? 'Windows'
+      : /linux/i.test(platform)
+        ? 'Linux'
+        : 'your device';
+
+  if (downloadCta) downloadCta.textContent = `Download for ${operatingSystem}`;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll<HTMLDetailsElement>('.faq-item').forEach((details) => {
+    const summary = details.querySelector('summary');
+    const answer = details.querySelector<HTMLElement>('.faq-answer');
+    if (!summary || !answer || reduceMotion) return;
+
+    let animation: Animation | undefined;
+
+    summary.addEventListener('click', (event) => {
+      if (!details.open) return;
+
+      event.preventDefault();
+      animation?.cancel();
+      answer.style.overflow = 'hidden';
+
+      animation = answer.animate(
+        { height: [`${answer.offsetHeight}px`, '0px'], opacity: [1, 0] },
+        { duration: 240, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+      );
+      animation.onfinish = () => {
+        details.open = false;
+        answer.style.overflow = '';
+        animation = undefined;
+      };
+    });
+
+    details.addEventListener('toggle', () => {
+      if (!details.open) return;
+
+      animation?.cancel();
+      answer.style.overflow = 'hidden';
+      const targetHeight = `${answer.scrollHeight}px`;
+
+      animation = answer.animate(
+        { height: ['0px', targetHeight], opacity: [0, 1] },
+        { duration: 280, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+      );
+      animation.onfinish = () => {
+        answer.style.overflow = '';
+        animation = undefined;
+      };
+    });
+  });
+
 </script>
