@@ -92,11 +92,6 @@ a { color: inherit; text-decoration: none; }
 .dark .theme-sun { display: block; }
 .dark .theme-moon { display: none; }
 
-.github-button svg {
-  width: 19px;
-  height: 19px;
-}
-
 .header-cta,
 .button {
   border: 1px solid var(--theme-ink);
