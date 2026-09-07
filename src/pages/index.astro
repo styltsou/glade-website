@@ -12,9 +12,7 @@ import Faq from '../components/Faq';
         <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A8.3 8.3 0 1 1 11.2 3 6.5 6.5 0 0 0 21 12.8Z" /></svg>
         <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5" /><path d="M12 2v2.2M12 19.8V22M4.93 4.93 6.49 6.49M17.51 17.51l1.56 1.56M2 12h2.2M19.8 12H22M4.93 19.07l1.56-1.56M17.51 6.49l1.56-1.56" /></svg>
       </button>
-      <a class="icon-button github-button" href="https://github.com/styltsou/glade" target="_blank" rel="noreferrer" aria-label="View Glade on GitHub" title="View on GitHub">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.7a10.3 10.3 0 0 0-3.26 20.07c.52.1.7-.22.7-.5v-1.8c-2.84.62-3.44-1.2-3.44-1.2-.47-1.17-1.14-1.48-1.14-1.48-.93-.63.07-.62.07-.62 1.03.07 1.57 1.05 1.57 1.05.92 1.57 2.4 1.12 2.98.86.09-.66.36-1.12.66-1.38-2.27-.26-4.66-1.13-4.66-5.03 0-1.11.4-2.02 1.05-2.73-.1-.26-.46-1.3.1-2.7 0 0 .86-.28 2.82 1.04a9.8 9.8 0 0 1 5.13 0c1.96-1.32 2.82-1.04 2.82-1.04.56 1.4.21 2.44.1 2.7.65.71 1.05 1.62 1.05 2.73 0 3.91-2.4 4.76-4.68 5.02.37.32.7.93.7 1.88v2.79c0 .28.18.61.71.5A10.3 10.3 0 0 0 12 1.7Z"/></svg>
-      </a>
+<a class="text-button" href="https://github.com/styltsou/glade" target="_blank" rel="noreferrer">GitHub</a>
       <a class="header-cta" id="header-cta" href="https://github.com/styltsou/glade" target="_blank" rel="noreferrer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5" /><path d="M12 15V3" /></svg>
         <span class="download-label">Get Glade</span>
@@ -116,21 +114,53 @@ import Faq from '../components/Faq';
   const themeToggle = document.getElementById('theme-toggle');
   const screenshotImages = Array.from(document.querySelectorAll('img[src*="app-screenshot"]'));
   const downloadCta = document.getElementById('download-cta');
+  const themeTransitionDuration = 240;
+  const themeImageRequests = new WeakMap();
+  let themeTransitionTimeout;
 
   const syncTheme = () => {
     const isDark = root.classList.contains('dark');
     themeToggle?.setAttribute('aria-label', isDark ? 'Use light theme' : 'Use dark theme');
     for (const img of screenshotImages) {
-      img.src = isDark
-        ? img.src.replace('app-screenshot-light', 'app-screenshot-dark')
-        : img.src.replace('app-screenshot-dark', 'app-screenshot-light');
+      const nextSrc = img.src.replace(
+        /app-screenshot-(light|dark)/,
+        `app-screenshot-${isDark ? 'dark' : 'light'}`,
+      );
+
+      if (img.src === nextSrc) continue;
+
+      const requestId = (themeImageRequests.get(img) || 0) + 1;
+      themeImageRequests.set(img, requestId);
+      img.classList.add('theme-image-pending');
+
+      let settled = false;
+      const revealImage = () => {
+        if (settled || themeImageRequests.get(img) !== requestId) return;
+        settled = true;
+        img.classList.remove('theme-image-pending');
+      };
+
+      img.addEventListener('load', revealImage, { once: true });
+      img.addEventListener('error', revealImage, { once: true });
+      img.src = nextSrc;
+
+      if (img.complete) {
+        const decoded = img.decode?.();
+        if (decoded) decoded.then(revealImage, revealImage);
+        else revealImage();
+      }
     }
   };
 
   themeToggle?.addEventListener('click', () => {
+    window.clearTimeout(themeTransitionTimeout);
+    root.classList.add('theme-switching');
     root.classList.toggle('dark');
     localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
     syncTheme();
+    themeTransitionTimeout = window.setTimeout(() => {
+      root.classList.remove('theme-switching');
+    }, themeTransitionDuration);
   });
 
   syncTheme();

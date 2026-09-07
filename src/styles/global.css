@@ -11,9 +11,40 @@
 
 :root {
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --theme-transition-duration: 240ms;
+  --theme-transition-ease: ease-out;
 }
 
 * { box-sizing: border-box; }
+
+html,
+body,
+body *,
+body *::before,
+body *::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: var(--theme-transition-duration);
+  transition-timing-function: var(--theme-transition-ease);
+}
+
+html.theme-switching,
+html.theme-switching *,
+html.theme-switching *::before,
+html.theme-switching *::after {
+  transition-property: background-color, border-color, color, fill, stroke, opacity !important;
+  transition-duration: var(--theme-transition-duration) !important;
+  transition-timing-function: var(--theme-transition-ease) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body,
+  body *,
+  body *::before,
+  body *::after {
+    transition-duration: 0ms !important;
+  }
+}
 
 html { scroll-behavior: smooth; }
 
@@ -23,6 +54,15 @@ body {
 }
 
 a { color: inherit; text-decoration: none; }
+
+img[src*="app-screenshot"] {
+  transition: opacity var(--theme-transition-duration) var(--theme-transition-ease);
+}
+
+html.dark img[src*="app-screenshot-light"],
+img.theme-image-pending {
+  opacity: 0;
+}
 
 .shell {
   width: min(100% - 64px, 1320px);
@@ -39,8 +79,8 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: color-mix(in srgb, var(--theme-paper) 84%, transparent);
-  backdrop-filter: blur(14px);
+  background: var(--theme-paper);
+  backdrop-filter: none;
   transform: translateX(-50%);
 }
 
@@ -116,6 +156,24 @@ a { color: inherit; text-decoration: none; }
   width: 14px;
   height: 14px;
   flex: 0 0 14px;
+}
+
+.text-button {
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 520;
+  letter-spacing: -0.01em;
+  color: var(--theme-muted);
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.text-button:hover {
+  color: var(--theme-ink);
+  background: color-mix(in srgb, var(--theme-ink) 7%, transparent);
 }
 
 .header-cta:hover,
@@ -425,7 +483,7 @@ a { color: inherit; text-decoration: none; }
   .site-header { height: 56px; }
   .header-actions { gap: 8px; }
   .icon-button { width: 30px; height: 30px; }
-  .header-cta { height: 30px; padding: 0 9px; font-size: 12px; }
+  .header-cta, .text-button { height: 30px; padding: 0 9px; font-size: 12px; }
   .hero { min-height: 520px; padding: 92px 0 68px; }
   .hero h1 { font-size: clamp(48px, 14vw, 68px); }
   .hero-actions { flex-direction: column; align-items: stretch; margin-top: 34px; }
