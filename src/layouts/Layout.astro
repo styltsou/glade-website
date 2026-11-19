@@ -1,83 +1,57 @@
+---
+import '../styles/global.css';
+const title = 'Glade — Read and edit your Markdown';
+const description = 'A quiet desktop viewer and editor for the Markdown files you already have. Open a file or folder in place. Read, edit, and keep your existing workflow.';
+---
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Glade is a beautifully focused, local-first desktop notebook. Plain Markdown. Entirely yours." />
-		<title>Glade — Local-first Markdown notebook</title>
-		
-		<script>
-			import Lenis from 'lenis';
-
-			const lenis = new Lenis({
-				duration: 1.2,
-				easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-			});
-
-			function raf(time) {
-				lenis.raf(time);
-				requestAnimationFrame(raf);
-			}
-
-			requestAnimationFrame(raf);
-		</script>
-		
-		<script is:inline>
-			(function() {
-				const stored = localStorage.getItem('theme');
-				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-				const useDarkTheme = stored === 'dark' || (!stored && prefersDark);
-				if (useDarkTheme) {
-					document.documentElement.classList.add('dark');
-					const preload = document.createElement('link');
-					preload.rel = 'preload';
-					preload.as = 'image';
-					preload.href = '/images/app-screenshot-dark.png';
-					document.head.appendChild(preload);
-				}
-			})();
-		</script>
-	</head>
-	<body class="bg-paper text-ink min-h-screen selection:bg-accent/20 selection:text-ink overflow-x-hidden">
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <script is:inline>
+      (() => {
+        let theme = 'light';
+        try { if (localStorage.getItem('glade-website-theme') === 'dark') theme = 'dark'; } catch {}
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+      })();
+    </script>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <slot />
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const sync = () => document.querySelectorAll('[data-theme-toggle]').forEach(button => {
+          const dark = root.classList.contains('dark');
+          const label = dark ? 'Use light theme' : 'Use dark theme';
+          button.setAttribute('aria-pressed', String(dark));
+          button.setAttribute('aria-label', label);
+          button.setAttribute('title', label);
+        });
+        document.addEventListener('click', event => {
+          const button = event.target instanceof Element && event.target.closest('[data-theme-toggle]');
+          if (!button) return;
+          const theme = root.classList.contains('dark') ? 'light' : 'dark';
+          root.classList.toggle('dark', theme === 'dark');
+          try { localStorage.setItem('glade-website-theme', theme); } catch {}
+          sync();
+        });
+        window.addEventListener('storage', event => {
+          if (event.key !== 'glade-website-theme' && event.key !== null) return;
+          root.classList.toggle('dark', event.newValue === 'dark');
+          sync();
+        });
+        sync();
+      })();
+    </script>
+  </body>
 </html>
-
-<style is:global>
-	@import "../styles/global.css";
-
-	:root {
-		--theme-paper: #F0EEE7;
-		--theme-surface: #F8F6F1;
-		--theme-ink: #1D211B;
-		--theme-accent: #A45439;
-		--theme-muted: #716F67;
-		--theme-line: #D5D1C6;
-	}
-
-	.dark {
-		--theme-paper: #0B0B0A;
-		--theme-surface: #131312;
-		--theme-ink: #EDEBE4;
-		--theme-accent: #D07A5A;
-		--theme-muted: #8A8880;
-		--theme-line: #232320;
-	}
-
-	html, body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-
-	html.lenis, html.lenis body {
-		height: auto;
-	}
-
-	.lenis.lenis-smooth {
-		scroll-behavior: auto;
-	}
-</style>

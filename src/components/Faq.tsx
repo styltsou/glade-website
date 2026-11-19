@@ -1,56 +1,16 @@
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
-import React, { useState } from 'react';
+import React from "react";
 
 const items = [
-  { question: 'What is Glade?', answer: 'Glade is a local-first desktop notebook for writing and organizing plain Markdown files.' },
-  { question: 'Where are my notes stored?', answer: 'On your machine as ordinary Markdown files. There is no proprietary format and no required cloud account.' },
-  { question: 'Is Glade open source?', answer: 'Yes. Glade is open source and available under the MIT license.' },
-  { question: 'Can I sync my notes?', answer: 'Your notes are regular files, so you can use your preferred sync approach. Built-in Git sync is on the roadmap.' },
+  ['What is Glade?', 'Glade is a desktop viewer and editor for existing Markdown files. Open a single file, a notes folder, or the docs in a codebase, and work on them in place.'],
+  ['Do I need to import my notes?', 'No. Open the folder you already use. Glade keeps recent folders, pins, and window state in its own app data directory. It does not add hidden folders, IDs, or timestamps to your notes.'],
+  ['Can I use it alongside another editor?', 'Yes. Your files stay ordinary Markdown. Glade watches for external changes and reloads them. If you have unsaved edits, you choose whether to keep yours or load the version on disk.'],
+  ['Does Glade handle Git or sync?', 'Glade does not manage commits or sync. Use Git, Syncthing, or a cloud folder as you normally would. Changes made by those tools show up in Glade.'],
+  ['Does the rich editor change my formatting?', 'Glade preserves the original text of untouched Markdown blocks. Edited blocks are serialized back to Markdown, and frontmatter edits change only the lines you touch.'],
+  ['How can I try it?', 'Glade is under active development and available from source under the MIT license. There are no prebuilt installers yet. The repository includes development setup and a local Linux install command.'],
 ];
-
 export default function Faq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const reduceMotion = useReducedMotion();
-  const transition = reduceMotion
-    ? { duration: 0 }
-    : { duration: 0.28, ease: [0.22, 1, 0.36, 1] as const };
-
-  return (
-    <div className="faq-list">
-      {items.map((item, index) => {
-        const isOpen = openIndex === index;
-        const answerId = `faq-answer-${index}`;
-
-        return (
-          <div className="faq-item" key={item.question}>
-            <button
-              className="faq-question"
-              type="button"
-              aria-expanded={isOpen}
-              aria-controls={answerId}
-              onClick={() => setOpenIndex(isOpen ? null : index)}
-            >
-              <span>{item.question}</span>
-              <span className="faq-symbol" aria-hidden="true">{isOpen ? '−' : '+'}</span>
-            </button>
-
-            <AnimatePresence initial={false}>
-              {isOpen && (
-                <motion.div
-                  id={answerId}
-                  className="faq-answer"
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={transition}
-                >
-                  <p>{item.answer}</p>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        );
-      })}
-    </div>
-  );
+  return <div className="faq-list">{items.map(([question, answer]) => <details key={question}>
+    <summary>{question}<span aria-hidden="true" className="faq-symbol">+</span></summary>
+    <p>{answer}</p>
+  </details>)}</div>;
 }
