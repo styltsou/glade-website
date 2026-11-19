@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Faq from '../components/Faq';
 import Brand from '../components/Brand.astro';
-import ProductDetails from '../components/ProductDetails';
+import { Features, HowItWorks } from '../components/ProductDetails';
 import MobilePreview from '../components/MobilePreview.astro';
 const repo = 'https://github.com/styltsou/glade';
 const setup = `${repo}#getting-started`;
@@ -10,7 +10,7 @@ const setup = `${repo}#getting-started`;
 <Layout>
   <header class="site-header shell">
     <a class="wordmark" href="#top" aria-label="Glade home"><Brand />Glade</a>
-    <nav aria-label="Main navigation"><a href="#the-app">The app</a><a href="#your-files">The details</a><a href="#questions">Questions</a></nav>
+    <nav aria-label="Main navigation"><a href="#the-app">The app</a><a href="#features">Features</a><a href="#how-it-works">How it works</a><a href="#questions">Questions</a></nav>
     <div class="header-actions">
       <button class="theme-toggle" type="button" data-theme-toggle aria-label="Use dark theme" aria-pressed="false" title="Use dark theme">
         <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A8.3 8.3 0 1 1 11.2 3 6.5 6.5 0 0 0 21 12.8Z" /></svg>
@@ -22,26 +22,34 @@ const setup = `${repo}#getting-started`;
   <main id="main">
     <section id="top" class="hero shell">
       <h1>Read and edit<br />your Markdown.</h1>
-      <div class="hero-aside"><p>A desktop editor for the files you already have. Open a Markdown file or folder in place, and keep your usual tools.</p><a class="button button-primary" href={setup}>Build from source <span aria-hidden="true">↗</span></a><span class="hero-note">Open source. No account needed.</span></div>
+      <div class="hero-aside"><p>Point Glade at a folder and it works on your files where they are. No vault, no import, no lock-in.</p><a class="button button-primary" href={setup}>Build from source <span aria-hidden="true">↗</span></a><span class="hero-note">Open source, MIT licensed.</span></div>
     </section>
 
     <section id="the-app" class="product-section shell" aria-label="Glade app preview">
-      <div class="product-stage">
-        <MobilePreview />
-        <img class="app-image app-light" src="/images/app-screenshot-light.png" width="1440" height="900" alt="Glade in light mode: a Markdown folder, compact tabs, and two independent editor panes." fetchpriority="high" />
-        <img class="app-image app-dark" src="/images/app-screenshot-dark.png" width="1440" height="900" alt="Glade in dark mode: a Markdown folder, compact tabs, and two independent editor panes." />
+      <div class="painting-wrap">
+        <img class="painting painting-light" src="/images/glade-painting-light.webp" alt="" width="1536" height="1024" />
+        <img class="painting painting-dark" src="/images/glade-painting.webp" alt="" width="1536" height="1024" />
+        <div class="app-window">
+          <MobilePreview />
+          <img class="app-image app-light" src="/images/app-screenshot-light.png" width="1440" height="900" alt="Glade in light mode: a Markdown folder, compact tabs, and two independent editor panes." fetchpriority="high" />
+          <img class="app-image app-dark" src="/images/app-screenshot-dark.png" width="1440" height="900" alt="Glade in dark mode: a Markdown folder, compact tabs, and two independent editor panes." />
+        </div>
       </div>
-      <p class="preview-foot"><span class="preview-caption-wide">Two editor panes, each with its own tabs and toolbar.</span><span class="preview-caption-small">A Markdown file in a single editor pane.</span></p>
     </section>
 
-    <section id="your-files" class="details-section shell" aria-label="Inside Glade">
-      <h2 class="sr-only">Inside Glade</h2>
-      <ProductDetails />
+    <section id="features" class="details-section shell" aria-label="What Glade does">
+      <h2 class="sr-only">What Glade does</h2>
+      <Features />
+    </section>
+
+    <section id="how-it-works" class="details-section shell" aria-labelledby="how-title">
+      <div class="section-intro"><h2 id="how-title">How it works.</h2><p>Glade is a layer over the folder you already have.</p></div>
+      <HowItWorks />
     </section>
 
     <section id="questions" class="faq-section shell" aria-labelledby="faq-title"><div class="faq-heading"><h2 id="faq-title">Questions</h2></div><Faq /></section>
 
-    <section id="get-glade" class="get-section shell" aria-labelledby="get-title"><div class="get-panel"><Brand /><h2 id="get-title">Try Glade.</h2><p>Build from source and open your first folder.<br />The code and setup instructions are on GitHub.</p><div class="hero-actions"><a class="button button-primary" href={setup}>Build from source <span aria-hidden="true">↗</span></a><a class="button button-secondary" href={`${repo}/issues`}>Give feedback</a></div><p class="availability">Available from source. Prebuilt installers are still to come.</p></div></section>
+    <section id="get-glade" class="get-section shell" aria-labelledby="get-title"><div class="get-panel"><Brand /><h2 id="get-title">Try Glade.</h2><p>Build it from source, then point it at a folder of notes.<br />Setup steps are in the repository.</p><div class="hero-actions"><a class="button button-primary" href={setup}>Build from source <span aria-hidden="true">↗</span></a><a class="button button-secondary" href={`${repo}/issues`}>Give feedback</a></div><p class="availability">Prebuilt installers are not ready yet.</p></div></section>
   </main>
   <footer class="site-footer shell"><a class="wordmark" href="#top"><Brand />Glade</a><span>Markdown, in place.</span><div><a href={repo}>GitHub ↗</a><a href={`${repo}#license`}>MIT license</a><a href="https://styltsou.com">Made by styltsou</a></div></footer>
 </Layout>

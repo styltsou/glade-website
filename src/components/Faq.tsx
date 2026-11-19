@@ -1,12 +1,11 @@
 import React from "react";
 
 const items = [
-  ['What is Glade?', 'Glade is a desktop viewer and editor for existing Markdown files. Open a single file, a notes folder, or the docs in a codebase, and work on them in place.'],
-  ['Do I need to import my notes?', 'No. Open the folder you already use. Glade keeps recent folders, pins, and window state in its own app data directory. It does not add hidden folders, IDs, or timestamps to your notes.'],
-  ['Can I use it alongside another editor?', 'Yes. Your files stay ordinary Markdown. Glade watches for external changes and reloads them. If you have unsaved edits, you choose whether to keep yours or load the version on disk.'],
-  ['Does Glade handle Git or sync?', 'Glade does not manage commits or sync. Use Git, Syncthing, or a cloud folder as you normally would. Changes made by those tools show up in Glade.'],
-  ['Does the rich editor change my formatting?', 'Glade preserves the original text of untouched Markdown blocks. Edited blocks are serialized back to Markdown, and frontmatter edits change only the lines you touch.'],
-  ['How can I try it?', 'Glade is under active development and available from source under the MIT license. There are no prebuilt installers yet. The repository includes development setup and a local Linux install command.'],
+  ['Will Glade rewrite my files?', 'Only the blocks you edit. Everything else is written back exactly as it was, and frontmatter edits touch only the lines you change. Glade never adds IDs, timestamps or hidden folders to your notes. Its own state, like recent folders and pins, lives in the app data directory.'],
+  ['Can I keep using my other editor?', 'Yes. Glade watches the files and reloads them when something else changes them. If you have unsaved edits at that moment, you choose between your version and the one on disk.'],
+  ['What about Git and sync?', 'Glade stays out of it. Use Git, Syncthing or a cloud folder as you do today, and whatever those tools change shows up in Glade.'],
+  ['What can the editor do beyond text?', 'Diagrams with Mermaid, tables, task lists, tags, properties from frontmatter, backlinks between notes, a table of contents, and find and replace. Open two notes side by side in split panes, each with its own tabs.'],
+  ['How do I get it?', 'Glade is open source under the MIT license and still in development. There are no prebuilt installers yet, so for now you build it from source. The repository has the setup steps and a local Linux install command.'],
 ];
 export default function Faq() {
   return <div className="faq-list">{items.map(([question, answer]) => <details key={question}>
