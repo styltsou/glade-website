@@ -1,0 +1,122 @@
+{
+  "app-hero-light": {
+    "width": 1440,
+    "height": 860
+  },
+  "app-hero-dark": {
+    "width": 1440,
+    "height": 860
+  },
+  "app-mobile-light": {
+    "width": 440,
+    "height": 540
+  },
+  "app-mobile-dark": {
+    "width": 440,
+    "height": 540
+  },
+  "diagram-full-light": {
+    "width": 740,
+    "height": 480
+  },
+  "diagram-full-dark": {
+    "width": 740,
+    "height": 480
+  },
+  "diagram-full-compact-light": {
+    "width": 400,
+    "height": 480
+  },
+  "diagram-full-compact-dark": {
+    "width": 400,
+    "height": 480
+  },
+  "themes-light": {
+    "width": 408,
+    "height": 408
+  },
+  "themes-dark": {
+    "width": 408,
+    "height": 408
+  },
+  "palette-light": {
+    "width": 608,
+    "height": 353
+  },
+  "palette-dark": {
+    "width": 608,
+    "height": 353
+  },
+  "palette-compact-light": {
+    "width": 408,
+    "height": 387
+  },
+  "palette-compact-dark": {
+    "width": 408,
+    "height": 387
+  },
+  "backlinks-light": {
+    "width": 496,
+    "height": 388
+  },
+  "backlinks-dark": {
+    "width": 496,
+    "height": 388
+  },
+  "backlinks-compact-light": {
+    "width": 376,
+    "height": 413
+  },
+  "backlinks-compact-dark": {
+    "width": 376,
+    "height": 413
+  },
+  "editor-rich-light": {
+    "width": 740,
+    "height": 540
+  },
+  "editor-rich-dark": {
+    "width": 740,
+    "height": 540
+  },
+  "editor-rich-compact-light": {
+    "width": 440,
+    "height": 540
+  },
+  "editor-rich-compact-dark": {
+    "width": 440,
+    "height": 540
+  },
+  "editor-raw-light": {
+    "width": 740,
+    "height": 540
+  },
+  "editor-raw-dark": {
+    "width": 740,
+    "height": 540
+  },
+  "editor-raw-compact-light": {
+    "width": 440,
+    "height": 540
+  },
+  "editor-raw-compact-dark": {
+    "width": 440,
+    "height": 540
+  },
+  "folder-light": {
+    "width": 760,
+    "height": 560
+  },
+  "folder-dark": {
+    "width": 760,
+    "height": 560
+  },
+  "folder-compact-light": {
+    "width": 440,
+    "height": 560
+  },
+  "folder-compact-dark": {
+    "width": 440,
+    "height": 560
+  }
+}
