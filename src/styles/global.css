@@ -59,7 +59,9 @@ img { max-width: 100%; display: block; }
 h1, h2, h3, h4, p { margin: 0; }
 ::selection { background: var(--ink); color: var(--paper); }
 .shell { width: min(1160px, calc(100% - 80px)); margin-inline: auto; }
-.site-header { position: sticky; top: 0; z-index: 20; height: var(--header-height); background: var(--paper); transition: background-color var(--duration-theme) ease; }
+/* Glass, like the app's menus: the page shows through, blurred, under a thin wash of the paper colour. */
+.site-header { position: sticky; top: 0; z-index: 20; height: var(--header-height); background: color-mix(in srgb, var(--paper) 65%, transparent); -webkit-backdrop-filter: blur(24px) saturate(1.5); backdrop-filter: blur(24px) saturate(1.5); border-bottom: 1px solid color-mix(in srgb, var(--ink) 7%, transparent); box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--paper) 40%, transparent); transition: background-color var(--duration-theme) ease, border-color var(--duration-theme) ease; }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .site-header { background: var(--paper); } }
 .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .wordmark { display: inline-flex; align-items: center; gap: 9px; font-size: 20px; font-weight: 600; letter-spacing: -.055em; flex-shrink: 0; }
 .brand-mark { display: block; width: 28px; height: 28px; color: var(--ink); flex-shrink: 0; }
