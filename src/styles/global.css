@@ -346,3 +346,6 @@ body, .brand-mark, .detail-card, .detail-copy p, .capture-pair, .app-window,
 /* In the Try Glade panel, the secondary button and the command box sit in the page colour (white in light, black in dark), so both themes read the same. */
 .get-panel .button-secondary, .get-panel .install-cmd { background: var(--paper); }
 .get-panel .button-secondary:hover { background: var(--surface-deep); }
+
+/* The arrow icon is taller than the label's capitals and sat a little low beside them. Make it match the cap height and centre it on them. */
+.button .external-link-icon { width: 14px; height: 14px; margin-top: -1px; }
