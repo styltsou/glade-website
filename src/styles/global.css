@@ -134,7 +134,7 @@ h2 { font-size: 43px; line-height: 1.13; font-weight: 500; letter-spacing: -.052
 .get-panel > p:not(.availability) { color: var(--muted); font-size: 18px; line-height: 1.6; margin-top: 19px; }
 .hero-actions { display: flex; justify-content: center; gap: 9px; margin-top: 25px; }
 .get-panel p.availability { margin-top: 20px; font-size: 13px; color: var(--faint); }
-.site-footer { display: flex; align-items: center; gap: 24px; padding-block: 35px 42px; }
+.site-footer { display: flex; align-items: center; gap: 24px; padding-block: 35px; }
 .site-footer .wordmark { font-size: 17px; gap: 7px; }
 .site-footer .brand-mark { width: 23px; height: 23px; }
 .site-footer > span { font-size: 13px; color: var(--faint); }
@@ -224,7 +224,7 @@ h2 { font-size: 43px; line-height: 1.13; font-weight: 500; letter-spacing: -.052
   .hero-actions { gap: 7px; margin-top: 22px; }
   .get-panel .button { font-size: 14px; padding-inline: 12px; gap: 12px; }
   .get-panel p.availability { font-size: 12px; line-height: 1.6; }
-  .site-footer { padding-block: 27px 30px; }
+  .site-footer { padding-block: 27px; }
   .site-footer > span { font-size: 12px; }
   .site-footer > div { justify-content: space-between; gap: 10px; }
   .site-footer > div a { font-size: 12px; }
@@ -321,6 +321,7 @@ body, .brand-mark, .detail-card, .detail-copy p, .capture-pair, .app-window,
 .how-shot { margin: 0; min-width: 0; overflow: hidden; isolation: isolate; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); box-shadow: 0 12px 32px -24px #0005; }
 .how-shot .capture-pair { margin: 0; }
 .is-scroll-story .how-sticky { position: sticky; top: var(--story-top); height: var(--story-height); display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 2fr); grid-template-rows: 1fr; column-gap: 64px; padding: 2px; }
+.is-scroll-story .how-heading { grid-column: 1; grid-row: 1; align-self: start; margin: 64px 0 0; }
 .is-scroll-story .how-scene { display: contents; }
 .is-scroll-story .how-copy { grid-column: 1; grid-row: 1; align-self: center; opacity: 0; pointer-events: none; transition: opacity 160ms ease; }
 .is-scroll-story .how-scene[data-active] .how-copy { opacity: 1; pointer-events: auto; }
@@ -342,10 +343,6 @@ body, .brand-mark, .detail-card, .detail-copy p, .capture-pair, .app-window,
 @media (max-width: 380px) {
  .header-github .external-link-icon { display: none; }
 }
-/* Align the heading with the first mockup before the walkthrough pins. */
-#how-it-works:has(.is-scroll-story) { position: relative; }
-#how-it-works:has(.is-scroll-story) .how-heading { position: absolute; top: calc(var(--section-gap) + 66px); left: 0; margin: 0; }
-
 /* In the Try Glade panel, the secondary button and the command box sit in the page colour (white in light, black in dark), so both themes read the same. */
 .get-panel .button-secondary, .get-panel .install-cmd { background: var(--paper); }
 .get-panel .button-secondary:hover { background: var(--surface-deep); }

@@ -47,9 +47,9 @@ const walkthrough = [
 
 export function HowItWorks() {
   return <>
-    <h2 id="how-title" className="how-heading">How it works.</h2>
     <div className="how-story" data-how-story>
     <div className="how-sticky">
+      <h2 id="how-title" className="how-heading">How it works.</h2>
       {walkthrough.map((step, index) => <article className="how-scene" key={step.capture} data-how-scene data-active={index === 0 ? '' : undefined}>
         <div className="how-copy">
           <h3>{step.title}</h3>
