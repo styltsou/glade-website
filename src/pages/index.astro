@@ -2,10 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import Faq from '../components/Faq';
 import Brand from '../components/Brand.astro';
-import { Features, HowItWorks } from '../components/ProductDetails';
+import Features from '../components/Features.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import { Image } from 'astro:assets';
+import spring from '../assets/glade-spring.webp';
+import autumn from '../assets/glade-autumn.webp';
+import placeholders from '../assets/placeholders.json';
 import MobilePreview from '../components/MobilePreview.astro';
 import ExternalLink from '../components/ExternalLink.astro';
-import AppCapture from '../components/AppCapture';
+import AppCapture from '../components/AppCapture.astro';
 const repo = 'https://github.com/styltsou/glade';
 const setup = `${repo}#getting-started`;
 const releases = `${repo}/releases/latest`;
@@ -34,11 +39,11 @@ const installCmd = 'curl -fsSL https://raw.githubusercontent.com/styltsou/glade/
 
     <section id="the-app" class="product-section shell" aria-label="Glade app preview">
       <div class="painting-wrap">
-        <img class="painting painting-light" src="/images/glade-spring.webp" alt="" width="1536" height="1024" />
-        <img class="painting painting-dark" src="/images/glade-autumn.webp" alt="" width="1536" height="1024" />
+        <Image class="painting painting-light" src={spring} alt="" widths={[480, 768, 1160, 1536]} sizes="(max-width: 760px) 100vw, (max-width: 1240px) calc(100vw - 80px), 1160px" loading="eager" fetchpriority="high" style={`background-image:url('${placeholders['glade-spring.webp']}');background-size:100% 100%`} />
+        <Image class="painting painting-dark" src={autumn} alt="" widths={[480, 768, 1160, 1536]} sizes="(max-width: 760px) 100vw, (max-width: 1240px) calc(100vw - 80px), 1160px" loading="eager" fetchpriority="low" style={`background-image:url('${placeholders['glade-autumn.webp']}');background-size:100% 100%`} />
         <div class="app-window">
           <MobilePreview />
-          <div class="desktop-preview"><AppCapture name="app-hero" alt="Glade's current interface: a Markdown folder, compact file tabs, and two independent editor panes." loading="eager" /></div>
+          <div class="desktop-preview"><AppCapture name="app-hero" alt="Glade's current interface: a Markdown folder, compact file tabs, and two independent editor panes." loading="lazy" /></div>
         </div>
       </div>
     </section>

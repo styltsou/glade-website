@@ -1,0 +1,39 @@
+---
+import AppCapture from "./AppCapture.astro";
+const walkthrough = [
+  {
+    title: 'Open a folder.',
+    description: 'Choose a folder of Markdown files from the app, or open one from your terminal.',
+    capture: 'folder',
+    alt: 'A folder of Markdown notes open in Glade.',
+    command: 'glade ~/notes',
+  },
+  {
+    title: 'Write on the page.',
+    description: 'Pick a note and start writing. Format text, add links, and check off tasks in the editor.',
+    capture: 'editor-rich',
+    alt: 'Field notes.md in Glade’s rich text editor, with paragraphs and a task list.',
+  },
+  {
+    title: 'See the Markdown.',
+    description: 'Switch to source to see the same file as Markdown. Only the blocks you edit are rewritten; the rest stays as it was.',
+    capture: 'editor-raw',
+    alt: 'The same Field notes.md file shown as Markdown source in Glade.',
+  },
+];
+---
+    <div class="how-story" data-how-story>
+    <div class="how-sticky">
+      <h2 id="how-title" class="how-heading">How it works.</h2>
+      {walkthrough.map((step, index) => <article class="how-scene" data-how-scene data-active={index === 0 ? '' : undefined}>
+        <div class="how-copy">
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+          {step.command && <code>{step.command}</code>}
+        </div>
+        <figure class="how-shot">
+          <AppCapture name={step.capture} compact compactAt={900} alt={step.alt} />
+        </figure>
+      </article>)}
+    </div>
+    </div>

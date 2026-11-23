@@ -1,0 +1,21 @@
+---
+import AppCapture from "./AppCapture.astro";
+---
+<div class="detail-grid faithful-features">
+    <article class="ss-stage detail-card diagram-card">
+      <div class="detail-copy"><h3>Diagrams,<br />as you write.</h3><p>Mermaid diagrams render in your notes. Open the full view to keep the code beside the diagram.</p></div>
+      <div class="capture-stage diagram-capture"><AppCapture name="diagram-full" compact alt="Glade's Mermaid full view, with the real source editor, rendered diagram, and zoom controls." /></div>
+    </article>
+    <article class="ss-stage detail-card themes-card">
+      <div class="detail-copy"><h3>Ten themes,<br />light and dark.</h3><p>Pick a theme from the palette. Moving through the list previews it in the app.</p></div>
+      <div class="capture-stage theme-capture"><AppCapture name="themes" alt="Glade's theme picker with its theme swatches, current selection, and keyboard hints." /></div>
+    </article>
+    <article class="ss-stage detail-card links-card">
+      <div class="detail-copy"><h3>Link notes<br />together.</h3><p>Type @ to link a note. See where a note is referenced in its Linked from section.</p></div>
+      <div class="capture-stage backlink-capture"><AppCapture name="backlinks" compact alt="A note in Glade with a normal Markdown link and the app's Linked from section showing referencing notes and their filenames." /></div>
+    </article>
+    <article class="ss-stage detail-card keyboard-card">
+      <div class="detail-copy"><h3>Keyboard first.</h3><p>Jump to a note, split a pane, or run an action from the same palette.</p></div>
+      <div class="capture-stage palette-capture"><AppCapture name="palette" compact alt="Glade's Actions palette, with grouped commands, real icons, and their keyboard shortcuts." /></div>
+    </article>
+  </div>

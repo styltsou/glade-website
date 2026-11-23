@@ -2,8 +2,8 @@
 
 The seasonal paintings were made with built-in image generation. The autumn image is an edit of the final spring painting, preserving the viewpoint, tree trunks, riverbank, and foreground rocks for the theme crossfade. The first separately generated autumn composition was discarded.
 
-- Light: `public/images/glade-spring.webp`
-- Dark: `public/images/glade-autumn.webp`
+- Light: `src/assets/glade-spring.webp`
+- Dark: `src/assets/glade-autumn.webp`
 - Both: 1536 × 1024, encoded as WebP from the selected generated PNGs.
 - Transition: the seasonal image crossfades in 120ms with the app captures and site colors; the spring layer stays underneath. Reduced motion switches immediately. No filters, crop changes, zooms, or parallax are used during the switch.
 
@@ -19,7 +19,7 @@ Use case: lighting-weather. EDIT TARGET: the supplied spring landscape painting.
 
 ## App interface captures
 
-The hero, narrow-screen preview, feature grid, and walkthrough use actual captures of the sibling Glade app, rather than independently drawn controls. Assets are under `public/images/product/`; their dimensions are recorded in `src/components/productCaptures.json`.
+The hero, narrow-screen preview, feature grid, and walkthrough use actual captures of the sibling Glade app, rather than independently drawn controls. Assets are under `src/assets/product/`; Astro reads their dimensions and generates responsive versions at build time. Tiny blurred versions are stored in `src/assets/placeholders.json` and are regenerated with `bun run images:placeholders` when the source images change.
 
 The captures use Glade themes with illustrative Markdown documents. The hero, feature, and note-view captures use black background and popover tokens in dark mode for contrast against the bento surfaces. The hero, feature, and note-view sources are captured at 3× resolution with the app’s bundled fonts loaded. Their source frames have square edges; the website supplies the single rounded clip so baked-in corners cannot show through. An isolated copy of the app source was rendered with its normal components, styles, icons, Mermaid renderer, CodeMirror editor, palette, theme picker, and note cards. Desktop APIs and file data were stubbed for capture. Hover-only editor helpers were allowed to mount after the editor view; no visual component or app stylesheet was redesigned for the captures. The sibling app checkout was not edited.
 
