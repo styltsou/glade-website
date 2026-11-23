@@ -345,3 +345,7 @@ body, .brand-mark, .detail-card, .detail-copy p, .capture-pair, .app-window,
 /* Align the heading with the first mockup before the walkthrough pins. */
 #how-it-works:has(.is-scroll-story) { position: relative; }
 #how-it-works:has(.is-scroll-story) .how-heading { position: absolute; top: calc(var(--section-gap) + 66px); left: 0; margin: 0; }
+
+/* In the Try Glade panel, the secondary button and the command box sit in the page colour (white in light, black in dark), so both themes read the same. */
+.get-panel .button-secondary, .get-panel .install-cmd { background: var(--paper); }
+.get-panel .button-secondary:hover { background: var(--surface-deep); }
