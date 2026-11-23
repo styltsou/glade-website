@@ -3,7 +3,7 @@
 
 :root {
   font-family: "IBM Plex Sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --header-height: 72px;
+  --header-height: 60px;
   --section-gap: clamp(110px, 11vw, 160px);
   --duration-theme: 120ms;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
@@ -60,7 +60,7 @@ h1, h2, h3, h4, p { margin: 0; }
 ::selection { background: var(--ink); color: var(--paper); }
 .shell { width: min(1160px, calc(100% - 80px)); margin-inline: auto; }
 /* Glass, like the app's menus: the page shows through, blurred, under a thin wash of the paper colour. */
-.site-header { position: sticky; top: 0; z-index: 20; height: var(--header-height); background: color-mix(in srgb, var(--paper) 65%, transparent); -webkit-backdrop-filter: blur(24px) saturate(1.5); backdrop-filter: blur(24px) saturate(1.5); border-bottom: 1px solid color-mix(in srgb, var(--ink) 7%, transparent); box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--paper) 40%, transparent); transition: background-color var(--duration-theme) ease, border-color var(--duration-theme) ease; }
+.site-header { position: sticky; top: 0; z-index: 20; height: var(--header-height); background: color-mix(in srgb, var(--paper) 65%, transparent); -webkit-backdrop-filter: blur(24px) saturate(1.5); backdrop-filter: blur(24px) saturate(1.5); transition: background-color var(--duration-theme) ease; }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .site-header { background: var(--paper); } }
 .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .wordmark { display: inline-flex; align-items: center; gap: 9px; font-size: 20px; font-weight: 600; letter-spacing: -.055em; flex-shrink: 0; }
@@ -180,7 +180,7 @@ h2 { font-size: 43px; line-height: 1.13; font-weight: 500; letter-spacing: -.052
   .site-footer > div { margin-left: 0; width: 100%; justify-content: flex-end; gap: 20px; }
 }
 @media (max-width: 760px) {
-  :root { --section-gap: 84px; --header-height: 64px; }
+  :root { --section-gap: 84px; --header-height: 56px; }
   .shell { width: calc(100% - 36px); }
   .header-inner { gap: 12px; }
   .site-header nav { display: none; }
